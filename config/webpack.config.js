@@ -375,7 +375,8 @@ module.exports = function (webpackEnv) {
                                         plugins: [
                                             {removeAttrs: {attrs: 'fill'}}
                                         ]
-                                    }}
+                                    }
+                                }
                             ]
                         },
                         // TODO: Merge this config once `image/avif` is in the mime-db
