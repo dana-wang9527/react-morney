@@ -4,9 +4,10 @@ import React from 'react';
 import Icon from './Icon';
 
 
-const NavWrapper = styled.div`
+const NavWrapper = styled.nav`
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
   line-height: 24px;
+  background: white;
 
   > ul {
     display: flex;
@@ -34,6 +35,7 @@ const NavWrapper = styled.div`
         }
       }
     }
+  }
 `;
 
 const Nav = () => {
@@ -42,19 +44,19 @@ const Nav = () => {
             <ul>
                 <li>
                     <NavLink to="/tags" activeClassName="selected">
-                        <Icon name='label'/>
+                        <Icon name="label"/>
                         标签
                     </NavLink>
                 </li>
                 <li>
                     <NavLink to="/money" activeClassName="selected">
-                        <Icon name='money'/>
+                        <Icon name="money"/>
                         记账
                     </NavLink>
                 </li>
                 <li>
                     <NavLink to="/statistics" activeClassName="selected">
-                        <Icon name='statistics'/>
+                        <Icon name="statistics"/>
                         统计
                     </NavLink>
                 </li>

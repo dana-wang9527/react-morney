@@ -7,13 +7,13 @@ try {
 } catch (error) {
     console.log(error);
 }
-
 type Props = {
     name: string
 }
+
 const Icon = (props: Props) => {
     return (
-        <svg className='icon'>
+        <svg className="icon">
             <use xlinkHref={'#' + props.name}/>
         </svg>
     );
