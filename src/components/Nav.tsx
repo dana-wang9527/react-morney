@@ -14,7 +14,6 @@ const NavWrapper = styled.div`
     > li {
       width: 33.3333%;
       text-align: center;
-
       > a {
         display: flex;
         flex-direction: column;
@@ -26,10 +25,11 @@ const NavWrapper = styled.div`
           width: 24px;
           height: 24px;
         }
-        &.selected{
-          color: red;
-          .icon{
-            fill: red;
+
+        &.selected {
+          color: rgb(255, 218, 83);
+          .icon {
+            fill: rgb(255, 218, 83);
           }
         }
       }
@@ -41,7 +41,6 @@ const Nav = () => {
         <NavWrapper>
             <ul>
                 <li>
-
                     <NavLink to="/tags" activeClassName="selected">
                         <Icon name='label'/>
                         标签
