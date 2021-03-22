@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React, {useRef, useState} from 'react';
+import React, {useRef} from 'react';
 
 const Wrapper = styled.section`
   padding: 0 16px;
@@ -24,13 +24,17 @@ const Wrapper = styled.section`
   }
 `;
 
+type Props={
+    value: string;
+    onChange: (value: string)=>void
+}
 
-const NotesSection: React.FC = () => {
-    const [note, setNote] = useState('');
+const NotesSection: React.FC<Props> = (props) => {
+    const note=props.value
     const refInput = useRef<HTMLInputElement>(null);
     const onBlur = () => {
         if (refInput.current !== null) {
-            setNote(refInput.current.value);
+            props.onChange(refInput.current.value);
         }
     };
     return (
