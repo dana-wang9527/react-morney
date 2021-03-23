@@ -5,7 +5,7 @@ const Wrapper = styled.section`
   padding: 0 16px;
   font-size: 14px;
 
-  > label {
+  >label {
     display: flex;
     align-items: center;
 
