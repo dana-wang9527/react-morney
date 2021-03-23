@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ChangeEventHandler} from 'react';
 import {useParams} from 'react-router-dom';
 import {useTags} from '../useTags';
 import Layout from '../components/Layout';
@@ -37,7 +37,7 @@ const Label = styled.label`
     height: 44px;
     background: none;
     border: none;
-    
+
   }
 `;
 
@@ -46,9 +46,12 @@ const Space = styled.div`
 `;
 
 const Tag: React.FC = () => {
-    const {tags} = useTags();
-    let {id} = useParams<Params>();
-    const tag = tags.filter(tag => tag.id === parseInt(id))[0];
+    const {findTag, upDateTag} = useTags();
+    let {id: idString} = useParams<Params>();
+    const tag = findTag(parseInt(idString));
+    const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+        upDateTag(tag.id, {name: (e.target.value)});
+    };
     return (
         <Layout>
             <Header>
@@ -59,7 +62,8 @@ const Tag: React.FC = () => {
             <div>
                 <Label>
                     <span>标签名</span>
-                    <input type="text" placeholder='标签名' value={tag.name}/>
+                    <input type="text" placeholder='标签名' value={tag.name}
+                           onChange={onChange}/>
                 </Label>
             </div>
             <div>
