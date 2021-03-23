@@ -25,11 +25,18 @@ const useTags = () => {//封装一个自定义Hook
         const index = findTagIndex(id);
         //拷贝tags得到tagsClone
         const tagsClone = JSON.parse(JSON.stringify(tags));
-       //把tagClone的第index删掉，换成{id：id, name: obj.name}
+        //把tagClone的第index删掉，换成{id：id, name: obj.name}
         tagsClone.splice(index, 1, {id, name: obj.name});
         setTags(tagsClone);
     };
-    return {tags, setTags, findTag,upDateTag,findTagIndex};
+
+    const deleteTag = (id: number) => {
+        const index = findTagIndex(id);
+        const tagsClone = JSON.parse(JSON.stringify(tags));
+        tagsClone.splice(index, 1);
+        setTags(tagsClone);
+    };
+    return {tags, setTags, findTag, upDateTag, findTagIndex, deleteTag};
 };
 
 export {useTags};

@@ -46,7 +46,7 @@ const Space = styled.div`
 `;
 
 const Tag: React.FC = () => {
-    const {findTag, upDateTag} = useTags();
+    const {findTag, upDateTag, deleteTag} = useTags();
     let {id: idString} = useParams<Params>();
     const tag = findTag(parseInt(idString));
     const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
@@ -59,19 +59,17 @@ const Tag: React.FC = () => {
                 <span>编辑标签</span>
                 <Icon/>
             </Header>
-            <div>
+            {tag ? <div>
                 <Label>
                     <span>标签名</span>
                     <input type="text" placeholder='标签名' value={tag.name}
                            onChange={onChange}/>
                 </Label>
-            </div>
-            <div>
                 <Center>
                     <Space/>
-                    <Button>删除标签</Button>
+                    <Button onClick={() => deleteTag(tag.id)}>删除标签</Button>
                 </Center>
-            </div>
+            </div> : <Center>tag不存在</Center>}
         </Layout>
     );
 };
