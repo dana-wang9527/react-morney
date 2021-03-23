@@ -18,11 +18,8 @@ function App() {
         <AppWrapper>
         <Router>
             <Switch>
-                <Route exact path="/tags">
+                <Route path="/tags" component={Tag}>
                     <Tags/>
-                </Route>
-                <Route exact path="/tags/:tag">
-                    <Tag/>
                 </Route>
                 <Route exact path="/money">
                     <Money/>
