@@ -12,12 +12,12 @@ const MyLayout = styled(Layout)`
   flex-direction: column;
 `;
 
-const defaultFormData={
+const defaultFormData = {
     tagIds: [] as number[],
     note: '',
     category: '-' as ('-' | '+'),
     amount: '0'
-}
+};
 
 function Money() {
     const [selected, setSelected] = useState(defaultFormData);
@@ -26,9 +26,10 @@ function Money() {
         setSelected({...selected, ...obj});
     };
     const submit = () => {
-        addRecord(selected);
-        window.alert('保存成功')
-        setSelected(defaultFormData)
+        if (addRecord(selected)) {
+            window.alert('保存成功');
+            setSelected(defaultFormData);
+        }
     };
     return (
         <MyLayout>
