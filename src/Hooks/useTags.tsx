@@ -34,10 +34,14 @@ const useTags = () => {//封装一个自定义Hook
         const tagName = window.prompt('新标签的名称为');
         if (tagName !== null && tagName !== '') {
             setTags([...tags, {id: createId(), name: tagName}]);
-            window.alert('创建成功')
+            window.alert('创建成功');
         }
     };
-    return {tags, setTags, findTag, upDateTag, deleteTag, addTag};
+    const getName = (id: number) => {
+        const tag = tags.filter(t => t.id === id)[0];
+        return tag ? tag.name : '';
+    };
+    return {tags, setTags, findTag, upDateTag, deleteTag, addTag,getName};
 };
 
 export {useTags};
