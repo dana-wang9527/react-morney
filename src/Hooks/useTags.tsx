@@ -20,7 +20,7 @@ const useTags = () => {//封装一个自定义Hook
     }, []); //挂载时执行
     useUpdate(() => {
         window.localStorage.setItem('tags', JSON.stringify(tags));
-    }, [tags]);
+    }, tags);
     const findTag = (id: number) => tags.filter(tag => tag.id === id)[0];
     const upDateTag = (id: number, obj: { name: string }) => {
         setTags(tags.map(tag => tag.id === id ? {id, name: obj.name} : tag));

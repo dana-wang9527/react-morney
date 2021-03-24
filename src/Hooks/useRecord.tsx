@@ -16,7 +16,7 @@ const useRecord = () => {
     }, []);
     useUpdate(() => {
         window.localStorage.setItem('records', JSON.stringify(records));
-    }, [records]);
+    }, records);
     const addRecord = (newRecord: newRecordItem) => {
         if (newRecord.tagIds.length === 0) {
             alert('请选择标签');
