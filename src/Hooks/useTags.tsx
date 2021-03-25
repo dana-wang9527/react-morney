@@ -28,6 +28,7 @@ const useTags = () => {//封装一个自定义Hook
 
     const deleteTag = (id: number) => {
         setTags(tags.filter(tag => tag.id !== id));
+
     };
 
     const addTag = () => {
