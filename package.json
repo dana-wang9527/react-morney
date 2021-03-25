@@ -1,6 +1,7 @@
 {
   "name": "monery-2",
   "version": "0.1.0",
+  "homepage": "https://dana-wang9527.github.io/react-monery-website/",
   "private": true,
   "dependencies": {
     "@babel/core": "7.12.3",
