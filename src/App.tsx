@@ -5,8 +5,7 @@ import Money from './Views/Money';
 import Statistics from './Views/Statistics';
 import NoMatch from './Views/NoMatch';
 import styled from 'styled-components';
-import {Tag} from './Views/Tag';
-import Home from './Views/Home';
+import Home from 'Views/Home';
 import Echart from './Views/Echarts';
 
 
@@ -34,9 +33,6 @@ function App() {
                 </Route>
                     <Route exact path="/tags">
                         <Tags/>
-                    </Route>
-                    <Route exact path="/tags/:id">
-                        <Tag/>
                     </Route>
                     <Route exact path="/echarts">
                         <Echart/>
