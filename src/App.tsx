@@ -6,6 +6,8 @@ import Statistics from './Views/Statistics';
 import NoMatch from './Views/NoMatch';
 import styled from 'styled-components';
 import {Tag} from './Views/Tag';
+import Home from './Views/Home';
+import Echart from './Views/Echarts';
 
 
 const AppWrapper = styled.div`
@@ -21,17 +23,23 @@ function App() {
         <AppWrapper>
             <Router>
                 <Switch>
+                    <Route path="/home">
+                        <Home/>
+                    </Route>
+                    <Route exact path="/statistics">
+                        <Statistics/>
+                    </Route>
+                    <Route exact path="/money">
+                    <Money/>
+                </Route>
                     <Route exact path="/tags">
                         <Tags/>
                     </Route>
                     <Route exact path="/tags/:id">
                         <Tag/>
                     </Route>
-                    <Route exact path="/money">
-                        <Money/>
-                    </Route>
-                    <Route exact path="/statistics">
-                        <Statistics/>
+                    <Route exact path="/echarts">
+                        <Echart/>
                     </Route>
                     <Redirect exact from='/' to='/money'/>
                     <Route path="*">
