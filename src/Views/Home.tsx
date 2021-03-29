@@ -1,6 +1,5 @@
 import React from 'react';
 import Layout from '../components/Layout';
-import dayjs from 'dayjs';
 import styled from 'styled-components';
 import Icon from '../components/Icon';
 import {getDate} from '../lib/createAt';
@@ -30,7 +29,7 @@ const Wrapper = styled.div`
     margin-top: 20px;
     .text4 {
       font-weight: bold;
-      color: #000;
+      color:red;
       display: flex;
       margin:10px 10px 0 10px;
       align-items: center;
@@ -47,8 +46,8 @@ const Home = ()=>{
                 </div>
                 <div className="recordsWrapper">
                     <div className="text4">
-                        <Icon name="note"/>
-                        <span>最近</span>
+                     <Icon name="phone"/>
+                     <span>请使用手机浏览，以保证使用效果</span>
                     </div>
                 </div>
             </Wrapper>
