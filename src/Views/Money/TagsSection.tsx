@@ -44,14 +44,14 @@ type Props={
     onChange: (value: number[])=>void
 }
 const TagsSection: React.FC<Props> = (props) => {
-    const {tags,addTag} = useTags();
+    const {tags} = useTags();
     const selectedTagIds=props.value
     const onToggleTag=(tagId: number)=>{
 const index=selectedTagIds.indexOf(tagId)
         if(index>=0){
            props.onChange(selectedTagIds.filter(t=>t!==tagId)) //如果tag 被选中，就复制所以没有被选中的tag作为新的selectedTags
         }else{
-            props.onChange([...selectedTagIds,tagId])
+            props.onChange([tagId])
         }
     }
     return (
@@ -63,8 +63,6 @@ const index=selectedTagIds.indexOf(tagId)
                          className={selectedTagIds.indexOf(tag.id)>=0?'selected':''}>{tag.name}</li>)
                 )}
             </ol>
-
-            <button onClick={addTag}>新增标签</button>
         </Wrapper>
     );
 };

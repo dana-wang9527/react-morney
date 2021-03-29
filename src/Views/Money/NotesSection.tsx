@@ -17,7 +17,7 @@ const Wrapper = styled.section`
     > input {
       display: block;
       width: 100%;
-      height: 72px;
+      height: 46px;
       background: none;
       border: none;
     }
