@@ -1,6 +1,7 @@
 import Nav from './Nav';
 import React, {useEffect, useRef} from 'react';
 import styled from 'styled-components';
+import {Bar} from './Bar';
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -11,6 +12,7 @@ const Wrapper = styled.div`
 const Main = styled.div`
   flex-grow: 1;
   overflow: auto;
+
   &::-webkit-scrollbar {
     width: 0
   }
@@ -19,6 +21,7 @@ const Main = styled.div`
 type Props = {
     className?: string;
     scrollTop?: number;
+    name: string
 }
 
 const Layout: React.FC<Props> = (props) => {
@@ -31,6 +34,7 @@ const Layout: React.FC<Props> = (props) => {
     }, [props.scrollTop]);
     return (
         <Wrapper>
+            <Bar name={props.name}/>
             <Main ref={mainRef} className={props.className}>
                 {props.children}
             </Main>
@@ -41,6 +45,5 @@ const Layout: React.FC<Props> = (props) => {
 Layout.defaultProps = {
     scrollTop: 0
 };
-
 
 export default Layout;
