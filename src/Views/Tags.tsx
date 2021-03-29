@@ -3,58 +3,64 @@ import React from 'react';
 import {useTags} from '../Hooks/useTags';
 import styled from 'styled-components';
 import Icon from 'components/Icon';
-import {Link} from 'react-router-dom';
 import {Button} from '../components/Button';
 import {Center} from '../components/Center';
+import {TopBar} from '../components/TopBar';
 
 
-const TagList = styled.ol`
-  font-size: 16px;
-  background: white;
+const Wrapper = styled.div`
+  > ul > li {
+    background: #ffffff;
+    margin: 8px 0;
+    padding: 0 12px;
+    border-radius: 4px;
+    min-height: 38px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #000;
 
-  > li {
-    border-bottom: 1px solid #d5d5d9;
-    line-height: 20px;
-    margin-left: 16px;
-
-
-    > a {
-      padding: 12px 16px 12px 0;
+    > .icons {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      }
     }
-  }
 `;
 
 const Space = styled.div`
-  height: 48px;
+  height: 32px;
 `;
 
-function Tags() {
-    const {tags,addTag} = useTags();
+const Tags: React.FC = () => {
+    const {tags, upDateTag, deleteTag, addTag} = useTags();
     return (
-        <Layout>
-            <TagList>
-                {
-                    tags.map(tag =>
-                        <li key={tag.id}>
-                            <Link to={'/tags/' + tag.id}>
-                                <span>{tag.name}</span>
-                                <Icon name="Right"/>
-                            </Link>
-                        </li>
-                    )}
-            </TagList>
-            <Center>
-                <Space/>
-                <Button onClick={addTag}>
-                    新增标签
-                </Button>
-            </Center>
-
+        <Layout name="标签">
+            <Wrapper>
+                <TopBar name='全部标签'/>
+                <ul>
+                    {tags.map(tag => {
+                        return <li key={tag.id}>
+                            <span>{tag.name}</span>
+                            <div className="icons">
+                                <Icon name="edit" className="edit" onClick={() => {
+                                    upDateTag(tag.id, {name: tag.name});
+                                }}/>
+                                <Icon name="delete" className="delete" onClick={() => {
+                                    deleteTag(tag.id);
+                                }}/>
+                            </div>
+                        </li>;
+                    })}
+                </ul>
+                <Center>
+                    <Space/>
+                    <Button onClick={addTag}>
+                        新增标签
+                    </Button>
+                </Center>
+            </Wrapper>
         </Layout>
     );
-}
+};
+
 
 export default Tags;
