@@ -26,7 +26,19 @@ const useRecord = () => {
         setRecords([...records, record]);
         return true
     };
-    return {records, addRecord};
+
+    const deleteRecord =(oneRecord: RecordItem)=>{
+        const index = records.indexOf(oneRecord);
+        if(window.confirm('确认要删除这条记录吗')){
+            const newRecords = JSON.parse(JSON.stringify(records));
+            newRecords.splice(index, 1);
+            window.alert("删除记录成功");
+            setRecords(newRecords);
+        }
+    };
+
+
+    return {records, addRecord,deleteRecord};
 };
 
 
