@@ -14,17 +14,18 @@ type Props = {
 } & React.SVGAttributes<SVGElement>
 
 const Wrapper = styled.div`
-  .icon {
-    &.delete {
-      width: 20px;
-      height: 20px;
+  .icon{
+    width: 32px; height: 32px;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+    &.delete{
+      width:20px;height:20px;
       color: #f00;
       margin: 0 8px;
     }
-
-    &.edit {
-      width: 20px;
-      height: 20px;
+    &.edit{
+      width:20px;height:20px;
       color: #00f;
       margin: 0 8px;
     }

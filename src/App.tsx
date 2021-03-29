@@ -6,7 +6,7 @@ import Statistics from './Views/Statistics';
 import NoMatch from './Views/NoMatch';
 import styled from 'styled-components';
 import Home from 'Views/Home';
-import Echart from './Views/Echarts';
+import Echart from 'Views/Echarts';
 
 
 const AppWrapper = styled.div`
