@@ -22,7 +22,7 @@ function App() {
         <AppWrapper>
             <Router>
                 <Switch>
-                    <Route path="/home">
+                    <Route exact path="/home">
                         <Home/>
                     </Route>
                     <Route exact path="/statistics">
@@ -37,7 +37,7 @@ function App() {
                     <Route exact path="/echarts">
                         <Echart/>
                     </Route>
-                    <Redirect exact from='/' to='/money'/>
+                    <Redirect exact from='/' to='/home'/>
                     <Route path="*">
                         <NoMatch/>
                     </Route>
